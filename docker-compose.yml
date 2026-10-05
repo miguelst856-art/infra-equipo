@@ -1,8 +1,16 @@
 services:
-  web:
+  nginx:
     image: nginx:stable
     ports:
-      - "8080:80"
+      - "${NGINX_PORT:-8080}:80"
     volumes:
       - ./web:/usr/share/nginx/html:ro
+    restart: unless-stopped
+
+  apache:
+    image: httpd:2.4
+    ports:
+      - "${APACHE_PORT:-8081}:80"
+    volumes:
+      - ./web:/usr/local/apache2/htdocs:ro
     restart: unless-stopped
