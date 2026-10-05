@@ -17,3 +17,5 @@ Despliegue de un servidor web Nginx con Docker Compose.
 
 ## Integrantes
 - Miguel Saldaña
+- Servidor probado por Miguel
+- Miguel configuró el repositorio y la rama de trabajo
