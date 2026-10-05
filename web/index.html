@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>infra-equipo | Servidor Nginx</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      color: #e8edf5;
+      background: radial-gradient(circle at 20% 20%, #1d3b6e 0%, #0b1426 55%, #070d1a 100%);
+      padding: 24px;
+    }
+    .card {
+      width: 100%; max-width: 680px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.45);
+      backdrop-filter: blur(8px);
+    }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .85rem; font-weight: 600;
+      color: #7ee2a8; background: rgba(46,204,113,.12);
+      padding: 6px 14px; border-radius: 999px;
+    }
+    .dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: #2ecc71; animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(46,204,113,.6); }
+      100% { box-shadow: 0 0 0 10px rgba(46,204,113,0); }
+    }
+    h1 { font-size: 2.2rem; margin: 20px 0 8px; letter-spacing: -.5px; }
+    h1 span { color: #5ea8ff; }
+    p.lead { color: #aab6cc; line-height: 1.6; margin-bottom: 28px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+    .item {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px; padding: 14px 16px;
+    }
+    .item small { display: block; color: #8d9ab3; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+    .item strong { font-size: 1rem; }
+    .tags { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: .8rem; padding: 6px 12px; border-radius: 8px;
+      background: rgba(94,168,255,.14); color: #9cc8ff;
+    }
+    footer { margin-top: 30px; font-size: .8rem; color: #7d8aa3; border-top: 1px solid rgba(255,255,255,.1); padding-top: 16px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="status"><span class="dot"></span> Servicio en línea</div>
+    <h1>infra<span>-equipo</span></h1>
+    <p class="lead">
+      Servidor web desplegado con Docker Compose y versionado con Git y GitHub.
+      Práctica de la Semana 08: Git, GitHub y DevOps para Infraestructura TI.
+    </p>
+
+    <div class="grid">
+      <div class="item"><small>Servidor</small><strong>Nginx (Docker)</strong></div>
+      <div class="item"><small>Sistema</small><strong>Ubuntu Server</strong></div>
+      <div class="item"><small>Puerto</small><strong>8080</strong></div>
+      <div class="item"><small>Fecha</small><strong id="fecha">--</strong></div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Git</span>
+      <span class="tag">GitHub</span>
+      <span class="tag">Docker Compose</span>
+      <span class="tag">Nginx</span>
+      <span class="tag">Markdown</span>
+    </div>
+
+    <footer>Desarrollado por Miguel Saldaña · Administración de Centros de Cómputo</footer>
+  </main>
+
+  <script>
+    document.getElementById("fecha").textContent =
+      new Date().toLocaleDateString("es-PE", { day: "2-digit", month: "long", year: "numeric" });
+  </script>
+</body>
+</html>
